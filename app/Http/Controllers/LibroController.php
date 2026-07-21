@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Libro;
@@ -9,10 +8,12 @@ use Illuminate\Http\Request;
 
 class LibroController extends Controller
 {
-    public function index() {
-        $libros = Libro::with('genero')->paginate(6);
-        return view('libros.index', compact('libros'));
-    }
+    public function index()
+{
+    $libros = Libro::with(['genero', 'etiquetas'])->paginate(6);
+
+    return view('libros.index', compact('libros'));
+}
 
     public function create() {
         $generos = Genero::all();

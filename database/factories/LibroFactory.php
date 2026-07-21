@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LibroFactory extends Factory
 {
+
+
     public function definition(): array
     {
         $catalogo = [
@@ -44,8 +46,8 @@ class LibroFactory extends Factory
             'titulo' => $libro['titulo'],
             'autor' => $libro['autor'],
             'anio_publicacion' => max($libro['anio'], 1400),
-            'precio' => $this->faker->randomFloat(2, 80, 650),
-            'stock' => $this->faker->numberBetween(0, 40),
+            'precio' =>  fake()->randomFloat(2, 80, 650),
+             'stock' => fake()->numberBetween(0, 40),
         ];
     }
 }
